@@ -2,61 +2,29 @@ require 'spec_helper'
 
 describe "StaticPages" do
 
-	let(:base_title) { "RoR Tutorial" }
-
+	subject { page }
 	describe "Home page" do
 
-		it "should have the right base title" do
-			visit '/static_pages/home'
-			page.should have_selector('title',
-								:text => "#{base_title}")
-		end
-		it "should not have a custom page title" do
-			visit '/static_pages/home'
-			page.should_not have_selector('title',
-								:text => "| Home")
-		end
-		it "should have the content 'Sample App'" do
-	  		visit '/static_pages/home'
-	  		page.should have_selector('h1',
-	  							:text=> "Sample App")
-		end
-
+		before { visit root_path }
+		it { page.should have_selector('title', text: full_title('')) }
+		it { page.should have_selector('h1', text: 'Sample App') }
 	end
 
 	describe "Help page" do
-		it "should have the right title" do
-			visit '/static_pages/help'
-			page.should have_selector('title',
-								:text => "#{base_title} | Help")
-		end
-		it "should have the content 'Help'" do
-			visit '/static_pages/help'
-			page.should have_content('Help')
-		end
+		before { visit help_path }
+		it { page.should have_selector('title', text: full_title('Help')) }
+		it { page.should have_content('Help') }
 	end
 
 	describe "About page" do
-		it "should have the right title" do
-			visit '/static_pages/about'
-			page.should have_selector('title',
-								:text => "#{base_title} | About")
-		end
-		it "should have the content 'About'" do
-			visit '/static_pages/about'
-			page.should have_content('About')
-		end
+		before { visit about_path }
+		it { page.should have_selector('title', text: full_title('About')) }
+		it { page.should have_content('About') }
 	end
 
 	describe "Contact page" do
-		it "should have the right title" do
-			visit '/static_pages/contact'
-			page.should have_selector('title',
-								:text => "#{base_title} | Contact")
-		end
-		it "should have the content 'Contact'" do
-			visit '/static_pages/contact'
-			page.should have_content('Contact')
-		end
+		before { visit contact_path }
+		it { should have_selector('title', text: full_title('Contact')) }
+		it { page.should have_content('Contact') }
 	end	
 end
