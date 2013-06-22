@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 gem 'pg', '0.12.2'
+gem 'jquery-rails', '2.0.2'
 gem 'bootstrap-sass', '2.1'
 
 # Bundle edge Rails instead:
@@ -15,6 +16,17 @@ group :development, :test do
 	gem 'spork', '0.9.2'
 end
 
+group :development do
+	gem 'annotate', '2.5.0'
+end
+
+group :test do
+	gem 'capybara', '1.1.2'
+	gem 'rb-fsevent', '0.9.3', :require => false
+	gem 'growl', '1.0.3'
+	gem 'sqlite3'
+end
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -26,14 +38,6 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '1.2.3'
-end
-
-gem 'jquery-rails', '2.0.2'
-
-group :test do
-	gem 'capybara', '1.1.2'
-	gem 'rb-fsevent', '0.9.3', :require => false
-	gem 'growl', '1.0.3'
 end
 
 # To use ActiveModel has_secure_password
