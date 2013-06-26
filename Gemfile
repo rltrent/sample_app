@@ -5,6 +5,7 @@ gem 'pg', '0.12.2'
 gem 'jquery-rails', '2.0.2'
 gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby', '3.0.1'
+gem 'launchy'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
